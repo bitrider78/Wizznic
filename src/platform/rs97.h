@@ -1,7 +1,7 @@
 #ifndef RS97_H_INCLUDED
 #define RS97_H_INCLUDED
 
-//Stats uploading for GCW Zero, using wget ?
+//Stats uploading for RS-97, using wget ?
 #define PLATFORM_SUPPORTS_STATSUPLOAD
 #define STR_PLATFORM "Retrogame RS-97"
 #if defined(WITH_CURL)
@@ -17,9 +17,11 @@
 
 #endif
 
+#define WANT_SWSCALE 1
+
 //Video
 #define SCREENW 320
-#define SCREENH 480
+#define SCREENH 240
 
 //Audio
 #define SOUND_RATE  22050

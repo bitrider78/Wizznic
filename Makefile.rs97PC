@@ -3,15 +3,10 @@
 #To compile without OpenGL scaling support, add WITH_OPENGL=false to the make command.
 
 
-OPTIMIZE = -mips32 -march=mips32 -mno-mips16 -fomit-frame-pointer -fno-builtin \
-		-fno-common -Wno-write-strings -Wno-sign-compare -ffast-math -ftree-vectorize \
-		-funswitch-loops -fno-strict-aliasing -mplt \
-		-fno-asynchronous-unwind-tables -fno-dwarf2-cfi-asm \
-		-funroll-loops \
-		-fsplit-loops \
-		-flto
+OPTIMIZE = 
+
 WITH_OPENGL := false
-CROSS_COMPILE := mipsel-linux-
+CROSS_COMPILE :=
 CC = $(CROSS_COMPILE)gcc
 LD = $(CC)
 STRIP = $(CROSS_COMPILE)strip

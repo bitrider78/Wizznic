@@ -24,17 +24,35 @@ static SDL_Surface* scale;
 
 SDL_Surface* swScaleInit( int sdlVideoModeFlags, int doScale )
 {
+#ifdef RS97
+  scale = SDL_SetVideoMode(320, 480, 16, sdlVideoModeFlags);
+  SDL_Surface* screen = SDL_CreateRGBSurface(SDL_SWSURFACE, 320, 240, 16, 0, 0, 0, 0);
+
+  //Set scaling
+  setting()->scaleFactor= (float)1.0;
+#else	
   scale = SDL_SetVideoMode(SCREENW*doScale,SCREENH*doScale,16, sdlVideoModeFlags);
   SDL_Surface* screen = SDL_CreateRGBSurface(SDL_SWSURFACE, 320,240,16, scale->format->Rmask,scale->format->Gmask,scale->format->Bmask,0xff000000);
 
   //Set scaling
   setting()->scaleFactor= (float)scale->h/240.0;
+#endif 
 
   return( screen );
 }
 
 void swScale( SDL_Surface* screen, int doScale )
 {
+#ifdef RS97
+	if(doScale==97)
+    {
+      for(int y=0; y< SCREENH; y++)
+      {
+          memcpy(scale->pixels + y * 2 * scale->pitch, screen->pixels + y * screen->pitch, screen->pitch);
+          memcpy(scale->pixels + y * 2 * scale->pitch + screen->pitch, screen->pixels + y * screen->pitch, screen->pitch);
+      }
+    } else
+#endif    
     if(doScale==2)
     {
       int x,xx,y,yy;

@@ -81,7 +81,11 @@ SDL_Surface* swScreen(int sdlVideoModeFlags)
 
 int main(int argc, char *argv[])
 {
+#ifdef RS97
+  int doScale=97; // 97 = RS97 Scale from 320x240 to 320x480
+#else
   int doScale=0; // 0=Undefined, 1=320x240, -1=OpenGL, >1=SwScale
+#endif
   char* dumpPack=NULL;
   int state=1; //Game, Menu, Editor, Quit
   int sdlVideoModeFlags = SDL_SWSURFACE;
@@ -155,7 +159,7 @@ int main(int argc, char *argv[])
   }
 
   //Setup display
-  #if defined (GP2X) || defined (PSP) || defined (WIZ) || defined(GCw0)
+  #if defined (GP2X) || defined (PSP) || defined (WIZ) || defined(GCW0)
   SDL_Surface* screen = SDL_SetVideoMode(SCREENW,SCREENH,16, sdlVideoModeFlags);
   #else
   SDL_Surface* screen=NULL;
@@ -307,7 +311,8 @@ int main(int argc, char *argv[])
     #endif
     } else if( doScale > 0 )
     {
-    #ifdef WANT_SWSCALE
+    #if defined(WANT_SWSCALE)
+		#warning "------------------------ SLOOOOW SOFTWARE RENDER "
       //Set up software scaling
       printf("Enabling slow software-based scaling to %ix%i.\n",320*doScale, 240*doScale);
       screen = swScaleInit(sdlVideoModeFlags,doScale);
