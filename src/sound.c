@@ -121,8 +121,8 @@ void loadSamples(const char* sndDir, const char* musicFile)
   loadSample( packGetFile(sndDir,"switchinactive.ogg"), SND_SWITCH_DEACTIVATED );
   loadSample( packGetFile(sndDir,"brickswap.ogg"), SND_BRICKSWAP );
   loadSample( packGetFile(sndDir,"brickcopy.ogg"), SND_BRICKCOPY );
-  loadSample( packGetFile(sndDir,"brickswapdenied.ogg"), SND_BRICKSWAP );
-  loadSample( packGetFile(sndDir,"brickcopydenied.ogg"), SND_BRICKCOPY );
+  loadSample( packGetFile(sndDir,"brickswapdenied.ogg"), SND_BRICKSWAP_DENIED );
+  loadSample( packGetFile(sndDir,"brickcopydenied.ogg"), SND_BRICKCOPY_DENIED );
   loadSample( packGetFile(sndDir, "winner.ogg"), SND_WINNER);
   loadSample( packGetFile(sndDir, "loser.ogg"), SND_LOSER);
 

@@ -538,7 +538,7 @@ void simField(playField* pf, cursorType* cur)
       b->sy=b->dy;
 
       //Remove brick from moving list
-      listRemoveItem( pf->movingList, li, LIST_NEXT );
+      li = listRemoveItem( pf->movingList, li, LIST_PREV );
     }
   }
 
@@ -923,7 +923,7 @@ int doRules(playField* pf)
         //Dealloc the brick
         free(b);
         //Remove from list
-        listRemoveItem(pf->removeList, li, LIST_NEXT);
+        li = listRemoveItem(pf->removeList, li, LIST_PREV);
       }
     }
   }

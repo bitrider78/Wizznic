@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
     scePowerSetClockFrequency(333,333,166);
   #endif
 
-  #ifdef GCW0
+  #if defined(GCW0) || defined(RS97)
     sdlVideoModeFlags = (SDL_HWSURFACE | SDL_DOUBLEBUF);
   #endif
 
