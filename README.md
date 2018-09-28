@@ -17,3 +17,5 @@ Automatically (read:untested) builds are available for Linux, Windows and Wiz he
 Boring parts
 ===
 The code is here on github, there's some reading material in the doc directory.
+
+Fixes and porting to Retrogame RS-97 handheld by bitrider 
