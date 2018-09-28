@@ -73,6 +73,8 @@
   #include "platform/wiz.h"
 #elif defined(GCW0)    //GCW Zero
   #include "platform/gcw0.h"
+#elif defined(RS97)    //GCW Zero
+  #include "platform/rs97.h"
 #else                 //Linux, Windows, Default
   #include "platform/pc.h"
   #define PC

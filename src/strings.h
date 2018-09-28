@@ -73,7 +73,7 @@
     //Game
     #define STR_GAME_PRESSB             "Press B to Play"
     #define STR_SELECT_CTRLS            "Use D-PAD, button B.\n"
-#elif defined(GCW0) /// GCW Zero version
+#elif (defined(GCW0) | defined(RS97)) /// GCW Zero & Retrogame RS97 version
   // Note: GCW Zero button layout matches the GP2X/Wiz layout in the following manner:
   //  GCW Zero - GP2X/Wiz
   //  A        - B
@@ -100,7 +100,6 @@
   //Game
   #define STR_GAME_PRESSB             "Press A to Play"
   #define STR_SELECT_CTRLS            "Use D-PAD, button A.\n"
-
 
 #elif defined(MAME_CTRL)
     //Menu
