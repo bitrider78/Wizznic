@@ -49,7 +49,7 @@ void swScale( SDL_Surface* screen, int doScale )
       for(int y=0; y< SCREENH; y++)
       {
           memcpy(scale->pixels + y * 2 * scale->pitch, screen->pixels + y * screen->pitch, screen->pitch);
-          memcpy(scale->pixels + y * 2 * scale->pitch + screen->pitch, screen->pixels + y * screen->pitch, screen->pitch);
+          memcpy(scale->pixels + y * 2 * scale->pitch + scale->pitch, screen->pixels + y * screen->pitch, screen->pitch);
       }
     } else
 #endif    
